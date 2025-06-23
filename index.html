@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brrrskuy</title>
+    <title>Skuy Vibes Cloud - VPS/RDP Server Premium</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* Reset dan style dasar */
         * {
             margin: 0;
             padding: 0;
@@ -14,530 +13,286 @@
         }
 
         body {
-            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #2d3748;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            overflow-x: hidden;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
 
-        /* Header dengan logo */
-        .header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 0;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-        }
-
-        .nav-container {
+        .container {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 2rem;
+            padding: 1rem 0;
         }
 
         .logo {
-            display: flex;
-            align-items: center;
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-size: 1.8rem;
+            font-weight: bold;
             color: #667eea;
         }
 
-        .logo i {
-            margin-right: 0.5rem;
-            font-size: 2rem;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .nav-menu {
+        .nav-links {
             display: flex;
             list-style: none;
             gap: 2rem;
         }
 
-        .nav-menu a {
+        .nav-links a {
             text-decoration: none;
-            color: #4a5568;
+            color: #333;
             font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
+            transition: color 0.3s;
         }
 
-        .nav-menu a:hover {
+        .nav-links a:hover {
             color: #667eea;
-        }
-
-        .nav-menu a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            transition: width 0.3s ease;
-        }
-
-        .nav-menu a:hover::after {
-            width: 100%;
         }
 
         /* Hero Section */
         .hero {
-            min-height: 100vh;
+            height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
             text-align: center;
             color: white;
             position: relative;
             overflow: hidden;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.1)" points="0,1000 1000,0 1000,1000"/></svg>');
-            z-index: -1;
-        }
-
         .hero-content h1 {
-            font-size: 4rem;
+            font-size: 3.5rem;
             margin-bottom: 1rem;
             animation: fadeInUp 1s ease;
         }
 
         .hero-content p {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             margin-bottom: 2rem;
-            opacity: 0.9;
             animation: fadeInUp 1s ease 0.2s both;
         }
 
         .cta-button {
             display: inline-block;
-            padding: 1rem 2rem;
-            background: rgba(255, 255, 255, 0.2);
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
             color: white;
+            padding: 15px 30px;
             text-decoration: none;
             border-radius: 50px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.3s ease;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
             animation: fadeInUp 1s ease 0.4s both;
         }
 
         .cta-button:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
         }
 
-        /* Sections */
-        .section {
-            padding: 5rem 0;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-left: 2rem;
-            padding-right: 2rem;
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background: white;
         }
 
         .section-title {
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 3rem;
-            color: #2d3748;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            border-radius: 2px;
-        }
-
-        /* About Section */
-        .about {
-            background: white;
-            border-radius: 20px;
-            padding: 3rem;
-            margin: 2rem 0;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-image {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: white;
-            margin: 0 auto;
-        }
-
-        .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: #2d3748;
-        }
-
-        .about-text p {
-            margin-bottom: 1rem;
-            color: #4a5568;
-            font-size: 1.1rem;
-        }
-
-        /* Skills Section */
-        .skills {
-            background: white;
-            border-radius: 20px;
-            padding: 3rem;
-            margin: 2rem 0;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .skill-card {
-            background: linear-gradient(135deg, #f7fafc, #edf2f7);
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .skill-card i {
-            font-size: 3rem;
-            color: #667eea;
-            margin-bottom: 1rem;
-        }
-
-        .skill-card h4 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: #2d3748;
-        }
-
-        /* Portfolio Section */
-        .portfolio {
-            background: white;
-            border-radius: 20px;
-            padding: 3rem;
-            margin: 2rem 0;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .portfolio-card {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 15px;
-            padding: 2rem;
-            color: white;
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-        }
-
-        .portfolio-card:hover {
-            transform: scale(1.02);
-        }
-
-        .portfolio-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100px;
-            height: 100px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            transform: translate(30px, -30px);
-        }
-
-        .portfolio-card h4 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .portfolio-card p {
-            margin-bottom: 1rem;
-            opacity: 0.9;
-        }
-
-        .portfolio-stats {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 1.5rem;
-            padding-top: 1rem;
-            border-top: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        /* Services Section */
-        .services {
-            background: white;
-            border-radius: 20px;
-            padding: 3rem;
-            margin: 2rem 0;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            color: #333;
         }
 
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
+            margin-top: 3rem;
         }
 
         .service-card {
+            background: white;
             padding: 2rem;
-            border: 2px solid #e2e8f0;
             border-radius: 15px;
-            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid transparent;
         }
 
         .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
             border-color: #667eea;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
         }
 
-        .service-card i {
+        .service-icon {
             font-size: 3rem;
             color: #667eea;
             margin-bottom: 1rem;
         }
 
-        .service-card h4 {
-            font-size: 1.3rem;
+        .service-card h3 {
+            font-size: 1.5rem;
             margin-bottom: 1rem;
-            color: #2d3748;
+            color: #333;
         }
 
-        .service-card ul {
-            list-style: none;
-            text-align: left;
+        .service-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
         }
 
-        .service-card li {
-            padding: 0.3rem 0;
-            color: #4a5568;
-        }
-
-        .service-card li::before {
-            content: '✓';
-            color: #667eea;
+        .price {
+            font-size: 2rem;
             font-weight: bold;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .features li {
+            padding: 0.5rem 0;
+            color: #666;
+        }
+
+        .features li i {
+            color: #10ac84;
             margin-right: 0.5rem;
         }
 
-        /* Testimonials Section */
-        .testimonials {
-            background: white;
-            border-radius: 20px;
-            padding: 3rem;
-            margin: 2rem 0;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        .order-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.3s;
+            text-decoration: none;
+            display: inline-block;
         }
 
-        .testimonials-grid {
+        .order-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
+            margin-top: 3rem;
         }
 
-        .testimonial-card {
-            background: linear-gradient(135deg, #f7fafc, #edf2f7);
-            padding: 2rem;
+        .portfolio-item {
+            background: white;
             border-radius: 15px;
-            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
         }
 
-        .testimonial-card::before {
-            content: '"';
-            position: absolute;
-            top: -10px;
-            left: 20px;
-            font-size: 4rem;
-            color: #667eea;
-            opacity: 0.3;
+        .portfolio-item:hover {
+            transform: translateY(-5px);
         }
 
-        .testimonial-text {
-            font-style: italic;
+        .portfolio-image {
+            height: 200px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .portfolio-content {
+            padding: 2rem;
+        }
+
+        .portfolio-content h3 {
+            font-size: 1.3rem;
             margin-bottom: 1rem;
-            color: #4a5568;
+            color: #333;
         }
 
-        .testimonial-author {
-            font-weight: 600;
-            color: #2d3748;
+        .portfolio-content p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tech-tag {
+            background: #667eea;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
         }
 
         /* Contact Section */
         .contact {
-            background: white;
-            border-radius: 20px;
-            padding: 3rem;
-            margin: 2rem 0;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-
-        .contact-info h4 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #2d3748;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-            padding: 1rem;
-            background: linear-gradient(135deg, #f7fafc, #edf2f7);
-            border-radius: 10px;
-        }
-
-        .contact-item i {
-            font-size: 1.5rem;
-            color: #667eea;
-            margin-right: 1rem;
-            width: 30px;
-        }
-
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .form-group label {
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: #2d3748;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            padding: 1rem;
-            border: 2px solid #e2e8f0;
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-
-        .submit-btn {
-            padding: 1rem 2rem;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-        }
-
-        /* Footer */
-        .footer {
-            background: #2d3748;
+            padding: 100px 0;
+            background: #333;
             color: white;
             text-align: center;
-            padding: 2rem 0;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
             margin-top: 3rem;
         }
 
-        .social-links {
+        .contact-item {
+            padding: 2rem;
+        }
+
+        .contact-item i {
+            font-size: 2rem;
+            color: #667eea;
             margin-bottom: 1rem;
         }
 
-        .social-links a {
+        /* Footer */
+        footer {
+            background: #222;
             color: white;
-            font-size: 1.5rem;
-            margin: 0 1rem;
-            transition: color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: #667eea;
+            text-align: center;
+            padding: 2rem 0;
         }
 
         /* Animations */
@@ -552,323 +307,247 @@
             }
         }
 
-        /* Responsive Design */
+        /* Responsive */
         @media (max-width: 768px) {
-            .nav-menu {
+            .nav-links {
                 display: none;
             }
-
+            
             .hero-content h1 {
                 font-size: 2.5rem;
             }
-
-            .hero-content p {
-                font-size: 1.2rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .contact-content {
+            
+            .services-grid {
                 grid-template-columns: 1fr;
             }
-
-            .section {
-                padding-left: 1rem;
-                padding-right: 1rem;
-            }
-
-            .about, .skills, .portfolio, .services, .testimonials, .contact {
-                padding: 2rem;
-            }
-        }
-
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Loading animation */
-        .loading {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            opacity: 1;
-            transition: opacity 0.5s ease;
-        }
-
-        .loading.hide {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 5px solid rgba(255,255,255,0.3);
-            border-top: 5px solid white;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div class="loading" id="loading">
-        <div class="spinner"></div>
-    </div>
-
     <!-- Header -->
-    <header class="header">
-        <div class="nav-container">
+    <header>
+        <nav class="container">
             <div class="logo">
-                <i class="fas fa-parachute-box"></i>
-                Brrrskuy
+                <i class="fas fa-server"></i> Skuy Vibes Cloud
             </div>
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skill</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#services">Buy VPS</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">List Service</a></li>
+                <li><a href="#portfolio">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Brrrskuy Vibes</h1>
-            <p>Nodes Runner and Airdrop User</p>
-            <a href="#portfolio" class="cta-button">See my Portofolio</a>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="section">
-        <div class="about">
-            <h2 class="section-title">About me</h2>
-            <div class="about-content">
-                <div class="about-image">
-                    <i class="fas fa-user-tie"></i>
-                </div>
-                <div class="about-text">
-                    <h3>Web2 or Web3 Project 3+ Years</h3>
-                    <p>Iam Working in Airdrop Family Indonesia and my Position in CFO</p>
-                    <p>Im Seller Cloud Server by Digital Ocean in Telegram Channel Airdrop Family Indonesia and Skuy Vibes Cloud</p>
-                    <p></p>
-                </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>VPS/RDP Server Premium</h1>
+                <p>Solusi hosting terpercaya dengan performa tinggi dan uptime 99.9%</p>
+                <a href="#services" class="cta-button">Lihat Paket</a>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="section">
-        <div class="skills">
-            <h2 class="section-title">Special Skill</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <i class="fas fa-coins"></i>
-                    <h4>Nodes Runner</h4>
-                    <p>Already running Nodes more than 20+ Projects</p>
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Paket Layanan Kami</h2>
+            <div class="services-grid">
+                <!-- VPS Starter -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>VPS Starter</h3>
+                    <div class="price">Rp 80.000<span style="font-size: 1rem;">/bulan</span></div>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> 2 CPU Cores</li>
+                        <li><i class="fas fa-check"></i> 4GB RAM</li>
+                        <li><i class="fas fa-check"></i> 80GB SSD Storage</li>
+                        <li><i class="fas fa-check"></i> 5TB Bandwidth</li>
+                        <li><i class="fas fa-check"></i> Linux/Windows OS</li>
+                    </ul>
+                    <a href="#contact" class="order-btn">Order Now</a>
                 </div>
-                <div class="skill-card">
-                    <i class="fas fa-users"></i>
-                    <h4>Testnet,Devnet</h4>
-                    <p>Already working on Testnet,Devnet of more than 200+ Projects</p>
+
+                <!-- VPS Professional -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>VPS Standar</h3>
+                    <div class="price">Rp 130.000<span style="font-size: 1rem;">/bulan</span></div>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> 4 CPU Cores</li>
+                        <li><i class="fas fa-check"></i> 8GB RAM</li>
+                        <li><i class="fas fa-check"></i> 160GB NVMe Storage</li>
+                        <li><i class="fas fa-check"></i> 5TB Bandwidth</li>
+                        <li><i class="fas fa-check"></i> Linux/Windows OS</li>
+                    </ul>
+                    <a href="#contact" class="order-btn">Pesan Sekarang</a>
                 </div>
-                <div class="skill-card">
-                    <i class="fas fa-chart-line"></i>
-                    <h4>Marketing Strategy</h4>
-                    <p>Designing effective marketing strategies for Crypto Projects</p>
+
+                <!-- VPS Professional -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>VPS Standar</h3>
+                    <div class="price">Rp 270.000<span style="font-size: 1rem;">/bulan</span></div>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> 8 CPU Cores</li>
+                        <li><i class="fas fa-check"></i> 16GB RAM</li>
+                        <li><i class="fas fa-check"></i> 320GB NVMe Storage</li>
+                        <li><i class="fas fa-check"></i> 5TB Bandwidth</li>
+                        <li><i class="fas fa-check"></i> Linux/Windows OS</li>
+                    </ul>
+                    <a href="#contact" class="order-btn">Pesan Sekarang</a>
+                </div>
+                
+                <!-- RDP Server -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3>RDP Server</h3>
+                    <div class="price">Rp 10.000<span style="font-size: 1rem;">/install</span></div>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> All Install RDP</li>
+                    </ul>
+                    <a href="#contact" class="order-btn">Order Now</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Portfolio Section -->
-    <section id="portfolio" class="section">
-        <div class="portfolio">
-            <h2 class="section-title">Portfolio</h2>
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2 class="section-title">Portofolio Project</h2>
             <div class="portfolio-grid">
-                <div class="portfolio-card">
-                    <h4>DeFi Protocol XYZ Airdrop</h4>
-                    <p>Mengelola airdrop senilai $500K untuk protokol DeFi terbaru dengan distribusi kepada 25,000 pengguna aktif.</p>
-                    <div class="portfolio-stats">
-                        <div class="stat">
-                            <div class="stat-number">25K</div>
-                            <div class="stat-label">Penerima</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">$500K</div>
-                            <div class="stat-label">Nilai Total</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">98%</div>
-                            <div class="stat-label">Success Rate</div>
+                <!-- Project 1 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>E-Commerce Platform</h3>
+                        <p>Membangun platform e-commerce dengan arsitektur microservices menggunakan VPS cluster untuk handling traffic tinggi.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">Redis</span>
                         </div>
                     </div>
                 </div>
-                <div class="portfolio-card">
-                    <h4>NFT Marketplace ABC Launch</h4>
-                    <p>Kampanye airdrop untuk peluncuran NFT marketplace dengan fokus pada early adopters dan content creators.</p>
-                    <div class="portfolio-stats">
-                        <div class="stat">
-                            <div class="stat-number">15K</div>
-                            <div class="stat-label">Penerima</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">$300K</div>
-                            <div class="stat-label">Nilai Total</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">95%</div>
-                            <div class="stat-label">Success Rate</div>
-                        </div>
-                    </div>
-                </div>
-    </section>
 
-    <!-- Services Section -->
-    <section id="services" class="section">
-        <div class="services">
-            <h2 class="section-title">List VPS/RDP</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <i class="fas fa-rocket"></i>
-                    <h4>Airdrop Campaign Management</h4>
-                    <ul>
-                        <li>Perencanaan strategi airdrop</li>
-                        <li>Target audience analysis</li>
-                        <li>Smart contract development</li>
-                        <li>Distribution automation</li>
-                        <li>Performance monitoring</li>
-                    </ul>
+                <!-- Project 2 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Trading Bot Infrastructure</h3>
+                        <p>Setup infrastruktur trading bot dengan multiple RDP server untuk menjalankan algoritma trading 24/7.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Windows Server</span>
+                            <span class="tech-tag">MetaTrader</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <i class="fas fa-bullhorn"></i>
-                    <h4>Community Building</h4>
-                    <ul>
-                        <li>Discord/Telegram setup</li>
-                        <li>Community moderation</li>
-                        <li>Engagement strategies</li>
-                        <li>Influencer partnerships</li>
-                        <li>Content creation</li>
-                    </ul>
+
+                <!-- Project 3 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Game Server Hosting</h3>
+                        <p>Deployment dan management game server untuk komunitas gaming dengan load balancing dan auto-scaling.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Linux</span>
+                            <span class="tech-tag">Nginx</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">Kubernetes</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <i class="fas fa-search"></i>
-                    <h4>Token Research & Analysis</h4>
-                    <ul>
-                        <li>Market research</li>
-                        <li>Competitor analysis</li>
-                        <li>Tokenomics review</li>
-                        <li>Risk assessment</li>
-                        <li>Investment recommendations</li>
-                    </ul>
+
+                <!-- Project 4 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Security Monitoring System</h3>
+                        <p>Implementasi sistem monitoring keamanan real-time dengan dashboard analytics untuk multiple server.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">ELK Stack</span>
+                            <span class="tech-tag">Grafana</span>
+                            <span class="tech-tag">Prometheus</span>
+                            <span class="tech-tag">Docker</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="contact">
-            <h2 class="section-title">Contact</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h4>Information Contact</h4>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <strong>Email</strong><br>
-                            akbarasiff1@gmail.com
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-telegram"></i>
-                        <div>
-                            <strong>Telegram</strong><br>
-                            Brrrskuy or Skuy Vibes Cloud
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-discord"></i>
-                        <div>
-                            <strong>Discord</strong><br>
-                            nsjb
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-twitter"></i>
-                        <div>
-                            <strong>Twitter</strong><br>
-                            @Brrrskuy
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <strong>Working on</strong><br>
-                            18/7 Available
-                        </div>
-                    </div>
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Hubungi Kami</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fab fa-telegram"></i>
+                    <h3>Telegram Channel</h3>
+                    <p>t.me/skuycloud</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>akbarasiff1@gmail.com</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <h3>Github</h3>
+                    <p>github.com/brrrskuy</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <h3>Support</h3>
+                    <p>18/7 Online</p>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="social-links">
-            <a href="x.com/brrrskuy"><i class="fab fa-twitter"></i></a>
-            <a href="t.me/skuycloud"><i class="fab fa-telegram"></i></a>
-            <a href="nsjb"><i class="fab fa-discord"></i></a>
-            <a href="github.com/brrrskuy"><i class="fab fa-github"></i></a>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Skuy Vibes. All rights reserved. | Telegram Channel : Skuy Vibes Cloud & Airdrop Family Indonesia</p>
         </div>
-        <p>&copy; 2025 Brrrskuy Vibes. All rights reserved. | Telegram Channel : Skuy Vibes Cloud & Airdrop Family Indonesia</p>
     </footer>
 
     <script>
-        // Loading screen
-        window.addEventListener('load', function() {
-            const loading = document.getElementById('loading');
-            setTimeout(() => {
-                loading.classList.add('hide');
-            }, 1000);
-        });
-
-        // Smooth scrolling for navigation links
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
         });
 
-        // Navbar background on scroll
+        // Header scroll effect
         window.addEventListener('scroll', function() {
-            const header = document.querySelector('.header');
+            const header = document.querySelector('header');
             if (window.scrollY > 100) {
                 header.style.background = 'rgba(255, 255, 255, 0.98)';
             } else {
@@ -876,7 +555,7 @@
             }
         });
 
-        // Animate elements on scroll
+        // Service cards animation on scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -891,12 +570,11 @@
             });
         }, observerOptions);
 
-        // Observe all sections
-        document.querySelectorAll('.section > div').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(30px)';
-            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(section);
+        document.querySelectorAll('.service-card, .portfolio-item').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
         });
     </script>
 </body>
