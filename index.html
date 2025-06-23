@@ -263,29 +263,24 @@
         }
 
         /* Contact Section */
-        .contact {
-            padding: 100px 0;
-            background: #333;
-            color: white;
-            text-align: center;
-        }
-
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
         .contact-item {
-            padding: 2rem;
-        }
+    padding: 2rem;
+    position: relative;
+    background: transparent;
+}
 
-        .contact-item i {
-            font-size: 2rem;
-            color: #667eea;
-            margin-bottom: 1rem;
-        }
+.contact-item::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 50%;
+    background: rgba(102, 126, 234, 0.1);
+    border-radius: 10px;
+    z-index: -1;
+}
 
         /* Footer */
         footer {
@@ -344,8 +339,8 @@
         <div class="container">
             <div class="hero-content">
                 <h1>VPS/RDP Server Premium</h1>
-                <p>Solusi hosting terpercaya dengan performa tinggi dan uptime 99.9%</p>
-                <a href="#services" class="cta-button">Lihat Paket</a>
+                <p>Trusted hosting solution with High Performance and 99.9% Uptime</p>
+                <a href="#services" class="cta-button">View Services</a>
             </div>
         </div>
     </section>
@@ -353,7 +348,7 @@
     <!-- Services Section -->
     <section id="services" class="services">
         <div class="container">
-            <h2 class="section-title">Paket Layanan Kami</h2>
+            <h2 class="section-title">List Service VPS&RDP Server</h2>
             <div class="services-grid">
                 <!-- VPS Starter -->
                 <div class="service-card">
@@ -372,7 +367,7 @@
                     <a href="#contact" class="order-btn">Order Now</a>
                 </div>
 
-                <!-- VPS Professional -->
+                <!-- VPS Standar -->
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-rocket"></i>
@@ -386,15 +381,15 @@
                         <li><i class="fas fa-check"></i> 5TB Bandwidth</li>
                         <li><i class="fas fa-check"></i> Linux/Windows OS</li>
                     </ul>
-                    <a href="#contact" class="order-btn">Pesan Sekarang</a>
+                    <a href="#contact" class="order-btn">Order Now</a>
                 </div>
 
                 <!-- VPS Professional -->
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-rocket"></i>
+                        <i class="fas fa-suitcase"></i>
                     </div>
-                    <h3>VPS Standar</h3>
+                    <h3>VPS Profesional</h3>
                     <div class="price">Rp 270.000<span style="font-size: 1rem;">/bulan</span></div>
                     <ul class="features">
                         <li><i class="fas fa-check"></i> 8 CPU Cores</li>
@@ -403,7 +398,24 @@
                         <li><i class="fas fa-check"></i> 5TB Bandwidth</li>
                         <li><i class="fas fa-check"></i> Linux/Windows OS</li>
                     </ul>
-                    <a href="#contact" class="order-btn">Pesan Sekarang</a>
+                    <a href="#contact" class="order-btn">Order Now</a>
+                </div>
+
+                <!-- VPS Huge -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-suitcase"></i>
+                    </div>
+                    <h3>VPS Huge</h3>
+                    <div class="price">Rp 400.000<span style="font-size: 1rem;">/bulan</span></div>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> 8 CPU Cores</li>
+                        <li><i class="fas fa-check"></i> 32GB RAM</li>
+                        <li><i class="fas fa-check"></i> 480GB NVMe Storage</li>
+                        <li><i class="fas fa-check"></i> 5TB Bandwidth</li>
+                        <li><i class="fas fa-check"></i> Linux/Windows OS</li>
+                    </ul>
+                    <a href="#contact" class="order-btn">Order Now</a>
                 </div>
                 
                 <!-- RDP Server -->
@@ -414,7 +426,7 @@
                     <h3>RDP Server</h3>
                     <div class="price">Rp 10.000<span style="font-size: 1rem;">/install</span></div>
                     <ul class="features">
-                        <li><i class="fas fa-check"></i> All Install RDP</li>
+                        <li><i class="fas fa-check"></i> All Install RDP Charge</li>
                     </ul>
                     <a href="#contact" class="order-btn">Order Now</a>
                 </div>
@@ -425,7 +437,7 @@
     <!-- Portfolio Section -->
     <section id="portfolio" class="portfolio">
         <div class="container">
-            <h2 class="section-title">Portofolio Project</h2>
+            <h2 class="section-title">About me</h2>
             <div class="portfolio-grid">
                 <!-- Project 1 -->
                 <div class="portfolio-item">
@@ -438,8 +450,6 @@
                         <div class="tech-stack">
                             <span class="tech-tag">Node.js</span>
                             <span class="tech-tag">Docker</span>
-                            <span class="tech-tag">MongoDB</span>
-                            <span class="tech-tag">Redis</span>
                         </div>
                     </div>
                 </div>
@@ -474,23 +484,6 @@
                             <span class="tech-tag">Nginx</span>
                             <span class="tech-tag">MySQL</span>
                             <span class="tech-tag">Kubernetes</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 4 -->
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>Security Monitoring System</h3>
-                        <p>Implementasi sistem monitoring keamanan real-time dengan dashboard analytics untuk multiple server.</p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">ELK Stack</span>
-                            <span class="tech-tag">Grafana</span>
-                            <span class="tech-tag">Prometheus</span>
-                            <span class="tech-tag">Docker</span>
                         </div>
                     </div>
                 </div>
